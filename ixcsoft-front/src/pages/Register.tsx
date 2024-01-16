@@ -1,10 +1,9 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Envelope, Lock } from '@phosphor-icons/react'
+import { Envelope, Lock, Person } from '@phosphor-icons/react'
 import { enqueueSnackbar } from 'notistack'
 import { FormProvider, useForm } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom'
 import { z } from 'zod'
-import icon from '../assets/icon.png'
 import { Input } from '../components/Input'
 import { api } from '../lib/axios'
 
@@ -60,16 +59,11 @@ const Register = () => {
   return (
     <div className="h-screen w-full flex flex-col justify-center items-center bg-gray-200">
       <main className="h-3/4 w-1/3 bg-white p-10 justify-evenly items-center flex flex-col rounded-md shadow-md">
-        <figcaption className="h-20 w-full flex justify-center items-center -mt-3">
-          <img
-            className="h-20 w-20 -ml-5"
-            alt="Logo do produto IPorter"
-            src={icon}
-          />
-          <figcaption className="text-4xl text-primary_color font-bold">
-            IPorter
-          </figcaption>
-        </figcaption>
+        <div className="h-20 w-full flex justify-center items-center -mt-3">
+          <h1 className="text-4xl text-primary_color font-bold">
+            IXCSOFT-TESTE
+          </h1>
+        </div>
         <form
           onSubmit={handleSubmit(handleLogin)}
           onChange={() => {
@@ -84,7 +78,7 @@ const Register = () => {
               patternColor="background_color"
               initialVisibility={false}
             >
-              <Input.Icon icon={<Envelope color="gray" size={20} />} />
+              <Input.Icon icon={<Person color="gray" size={20} />} />
               <Input.Text placeholder="Nome" />
               <Input.Action />
             </Input.Root>
