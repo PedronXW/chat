@@ -4,9 +4,9 @@ import { Request, Response } from 'express'
 import { z } from 'zod'
 
 const createClientZodSchema = z.object({
-  name: z.string(),
+  name: z.string().min(2),
   email: z.string().email(),
-  password: z.string(),
+  password: z.string().min(6),
 })
 
 export class CreateClientController {
