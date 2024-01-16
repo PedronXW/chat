@@ -2,7 +2,7 @@ import { app } from '@/infra/http/app'
 import request from 'supertest'
 
 describe('AppController (e2e)', () => {
-  it('[UPDATE] /clients/:id', async () => {
+  it('[PUT] /clients/:id', async () => {
     const response = await request(app).post('/clients').send({
       name: 'John Doe',
       email: 'johndoe@johndoe.com',

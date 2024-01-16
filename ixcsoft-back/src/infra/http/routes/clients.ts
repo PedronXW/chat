@@ -1,5 +1,4 @@
 import { Router } from 'express'
-import { changeClientStatusController } from '../controllers/client/change-client-status'
 import { createClientController } from '../controllers/client/create-client'
 import { deleteClientController } from '../controllers/client/delete-client'
 import { editClientController } from '../controllers/client/edit-client'
@@ -19,10 +18,6 @@ clientsRouter.delete('/', verifyAuthentication, (req, res) => {
 
 clientsRouter.get('/', verifyAuthentication, (req, res) => {
   return fetchAllClientsController.handle(req, res)
-})
-
-clientsRouter.put('/status', verifyAuthentication, (req, res) => {
-  return changeClientStatusController.handle(req, res)
 })
 
 clientsRouter.put('/:id', verifyAuthentication, (req, res) => {

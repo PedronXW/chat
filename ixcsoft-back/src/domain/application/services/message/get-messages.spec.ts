@@ -15,7 +15,7 @@ describe('Fetch Message By Chat', () => {
     sut = new GetMessagesService(inMemoryMessageRepository)
   })
 
-  it('should be able to fetch messages by chat id', async () => {
+  it('should be able to fetch messages', async () => {
     const client = makeClient()
     await inMemoryClientRepository.createClient(client)
 

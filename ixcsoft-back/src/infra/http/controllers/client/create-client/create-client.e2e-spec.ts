@@ -12,6 +12,7 @@ describe('ClientController (e2e)', () => {
     expect(response.body).toEqual({
       id: expect.any(String),
       name: 'John Doe',
+      status: 'offline',
       email: 'johndoe@johndoe.com',
       createdAt: expect.any(String),
     })

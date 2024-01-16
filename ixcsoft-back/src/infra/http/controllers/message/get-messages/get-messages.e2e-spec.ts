@@ -3,7 +3,7 @@ import { createMessageService } from '@/infra/services/message/create-message'
 import request from 'supertest'
 
 describe('AppController (e2e)', () => {
-  it('[GET] /clients/:id', async () => {
+  it('[GET] /messages', async () => {
     const user = await request(app).post('/clients').send({
       name: 'John Doe',
       email: 'johndoe@johndoe.com',
@@ -28,6 +28,6 @@ describe('AppController (e2e)', () => {
       .send()
 
     expect(fetchResponse.status).toBe(200)
-    expect(fetchResponse.body.messages.messages[0].text).toBe('any_text')
+    expect(fetchResponse.body.messages[0].text).toBe('any_text')
   })
 })
