@@ -42,14 +42,12 @@ export const MessagesProvider = ({ children }: MessagesContextInterface) => {
         }),
       {
         headers: {
-          authorization: `Bearer ${value.token}`,
+          authorization: `Bearer ${value.token_ixsoft_test_authentication}`,
         },
       },
     )
 
     const data = await response.json()
-
-    console.log(data, page, messages, count)
 
     const newMessages = data.messages.reverse()
 

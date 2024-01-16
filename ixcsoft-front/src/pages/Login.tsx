@@ -19,7 +19,10 @@ const Login = () => {
         password: credentials.password,
       })
       .then((response) => {
-        store.updateValue('token', response.data.token)
+        store.updateValue(
+          'token_ixsoft_test_authentication',
+          response.data.token,
+        )
         navigate('/')
       })
       .catch((error) => {

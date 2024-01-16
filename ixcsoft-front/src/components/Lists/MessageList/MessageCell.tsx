@@ -9,7 +9,7 @@ interface MessageCellProps {
 }
 
 export const MessageCell = ({ message }: MessageCellProps) => {
-  const tokenJwt = usePersistanceStore().value.token
+  const tokenJwt = usePersistanceStore().value.token_ixsoft_test_authentication
 
   const { sub } = jwtDecode(tokenJwt) as any
 

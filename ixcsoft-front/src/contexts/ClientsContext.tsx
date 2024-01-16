@@ -37,7 +37,7 @@ export const ClientsProvider = ({ children }: ClientsContextInterface) => {
       `${import.meta.env.VITE_BACKEND_HOST}/clients`,
       {
         headers: {
-          authorization: `Bearer ${value.token}`,
+          authorization: `Bearer ${value.token_ixsoft_test_authentication}`,
         },
       },
     )

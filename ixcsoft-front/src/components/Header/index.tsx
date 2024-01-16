@@ -11,7 +11,7 @@ export const Header = () => {
 
   const handleLogout = () => {
     socket.disconnect()
-    deleteValue('token')
+    deleteValue('token_ixsoft_test_authentication')
     navigate('/login')
   }
 

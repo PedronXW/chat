@@ -6,7 +6,7 @@ interface RouteGuardInterface {
 }
 
 const RouteGuard = ({ page }: RouteGuardInterface) => {
-  const tokenJwt = usePersistanceStore().value.token
+  const tokenJwt = usePersistanceStore().value.token_ixsoft_test_authentication
 
   if (tokenJwt) {
     return page

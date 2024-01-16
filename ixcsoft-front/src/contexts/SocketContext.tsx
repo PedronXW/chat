@@ -30,7 +30,7 @@ export const SocketProvider = ({ children }: SocketContextInterface) => {
 
   const { fetchClients } = useContext(ClientsContext)
 
-  const token = usePersistanceStore().value.token
+  const token = usePersistanceStore().value.token_ixsoft_test_authentication
 
   const { sub } = token ? jwtDecode(token) : { sub: '' }
 
