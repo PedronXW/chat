@@ -35,7 +35,7 @@ export const MessagesProvider = ({ children }: MessagesContextInterface) => {
 
   async function fetchMessages({ page, limit }: MessageParams) {
     const response = await fetch(
-      `http://localhost:3333/messages?` +
+      `${import.meta.env.VITE_BACKEND_HOST}/messages?` +
         new URLSearchParams({
           page: page.toString(),
           limit: limit.toString(),

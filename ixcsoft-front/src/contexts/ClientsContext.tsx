@@ -1,3 +1,4 @@
+import 'dotenv'
 import { ReactNode, createContext, useEffect, useState } from 'react'
 import { usePersistanceStore } from '../hooks/usePersistanceStore'
 
@@ -32,11 +33,14 @@ export const ClientsProvider = ({ children }: ClientsContextInterface) => {
   }, [])
 
   async function fetchClients() {
-    const response = await fetch(`http://localhost:3333/clients`, {
-      headers: {
-        authorization: `Bearer ${value.token}`,
+    const response = await fetch(
+      `${import.meta.env.VITE_BACKEND_HOST}/clients`,
+      {
+        headers: {
+          authorization: `Bearer ${value.token}`,
+        },
       },
-    })
+    )
 
     const data = await response.json()
 

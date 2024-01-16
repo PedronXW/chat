@@ -1,4 +1,6 @@
 import { X } from '@phosphor-icons/react'
+
+import 'dotenv'
 import { SnackbarProvider, closeSnackbar } from 'notistack'
 import { CookiesProvider } from 'react-cookie'
 import ReactDOM from 'react-dom/client'
