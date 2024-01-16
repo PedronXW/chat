@@ -10,7 +10,7 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./jest-e2e.json",
     "start:dev": "tsx watch src/infra/server.ts",
-    "start": "node build/server.js",
+    "start": "node build/infra/server.js",
     "build": "tsup src --out-dir build"
   },
   "keywords": [],
@@ -18,11 +18,12 @@
   "license": "ISC",
   "devDependencies": {
     "@types/bcrypt": "5.0.2",
+    "@types/bcryptjs": "2.4.6",
     "@types/jsonwebtoken": "9.0.5",
     "@types/node": "20.11.0",
     "@types/socket.io": "3.0.2",
     "@types/supertest": "6.0.2",
-    "bcrypt": "5.1.1",
+    "bcryptjs": "2.4.3",
     "jest-extended": "4.0.2",
     "socket.io": "4.7.4",
     "supertest": "6.3.3",

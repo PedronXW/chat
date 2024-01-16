@@ -27,8 +27,8 @@ const Register = () => {
         )
         navigate('/login')
       })
-      .catch((error) => {
-        enqueueSnackbar(error.response.status, {
+      .catch(() => {
+        enqueueSnackbar('Erro ao registrar, tente novamente mais tarde', {
           variant: 'error',
         })
       })
@@ -46,7 +46,7 @@ const Register = () => {
     name: z
       .string()
       .nonempty('O nome é obrigatório')
-      .min(6, 'A nome precisa ter, no mínimo, 2 caracteres'),
+      .min(2, 'A nome precisa ter, no mínimo, 2 caracteres'),
   })
 
   const loginForm = useForm({ resolver: zodResolver(createPersonFormSchema) })

@@ -1,6 +1,6 @@
 import { HashComparer } from '@/domain/application/cryptography/hash-comparer'
 import { HashGenerator } from '@/domain/application/cryptography/hash-generator'
-import { compare, hash } from 'bcrypt'
+import { compare, hash } from 'bcryptjs'
 
 export class Crypto implements HashGenerator, HashComparer {
   async hash(plain: string): Promise<string> {
