@@ -1,39 +1,3 @@
-# IXCSOFT - TESTE
-
-Desenvolvedor: Pedro de Almeida Natali
-
-Vaga: Desenvolvedor FullStack NodeJS
-
-## Enunciado
-
-O objetivo do teste é construir uma aplicação web (NodeJS Express). O
-sistema deve conter uma tela de login (front em ReactJS/NextJS) para que
-os usuários cadastrados acessem a aplicação (o sistema deve possuir a
-funcionalidade de cadastro de usuários). A funcionalidade macro da
-aplicação web deverá ser um Chat, onde deve ser possibilitada a troca de
-mensagens entre os usuários cadastrados (clients) em tempo real (utilize
-socket.io). Ou seja, um usuário logado poderá conversar com qualquer
-outro usuário cadastrado. Se dois usuários estiverem logados ao mesmo
-tempo, as mensagens devem ser exibidas em tempo real, bem como a
-entrada (login) de novos usuários na plataforma (manter a lista de usuários
-atualizada).
-
-Outra funcionalidade relevante seria manter o status (online e offline) dos
-usuários visíveis e atualizados em tempo real conforme as ações de login
-e logout dos mesmos. Além disso, seria interessante possuir algum
-formato de notificação (também em tempo real) para auxiliar o usuário na
-informação/visualização de novas mensagens recebidas e/ou não lidas.
-
-A plataforma deve realizar o armazenamento das mensagens em banco de
-dados para garantir a durabilidade das informações (banco MongoDB).
-
-Um ponto extra seria utilizar a biblioteca cluster (nativa) para rodar a
-aplicação Node em cluster (nível de processo). Outro ponto, seria fazer a
-utilização de Docker para rodar a aplicação.
-
-O projeto deve ser entregue no gitlab ou github, contendo um arquivo de
-Readme com as informações/documentações necessárias
-
 ## Descrição Técnica 
 
 O Projeto consiste em duas aplicações complementares, uma backend e outra frontend, ambas escritas em NodeJS.
