@@ -1,3 +1,5 @@
+-->EM CONTRUÇÃO<--
+
 ## Descrição Técnica 
 
 O Projeto consiste em duas aplicações complementares, uma backend e outra frontend, ambas escritas em NodeJS.
