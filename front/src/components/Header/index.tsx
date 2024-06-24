@@ -17,7 +17,7 @@ export const Header = () => {
 
   return (
     <header className="h-16 w-full flex grow-0 flex-none bg-white items-center px-4 shadow-md justify-between">
-      <h1 className="text-3xl font-bold underline">IXCSOFT-TESTE</h1>
+      <h1 className="text-3xl font-bold underline">TESTE</h1>
       <button>
         <SignOut
           size={20}

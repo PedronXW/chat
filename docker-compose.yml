@@ -1,9 +1,9 @@
 version: "3.9"
 
 services:
-  ixcsoft-back:
-    build: ./ixcsoft-back
-    container_name: ixcsoft-back
+  back:
+    build: ./back
+    container_name: back
     restart: always
     entrypoint: sleep infinity
     environment:
@@ -15,11 +15,11 @@ services:
     ports: 
       - 3333:3333
     volumes:
-      - ./ixcsoft-back:/usr/app
+      - ./back:/usr/app
 
-  ixcsoft-front:
-    build: ./ixcsoft-front
-    container_name: ixcsoft-front
+  front:
+    build: ./front
+    container_name: front
     restart: always
     entrypoint: sleep infinity
     ports: 
@@ -27,7 +27,7 @@ services:
     environment:
       VITE_BACKEND_HOST: http://localhost:3333
     volumes:
-      - ./ixcsoft-front:/usr/app
+      - ./front:/usr/app
 
   mongo:
     image: mongo

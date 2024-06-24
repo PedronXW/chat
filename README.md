@@ -37,13 +37,13 @@ Após a instalação das dependências retorne à página raiz do projeto e inic
 
 ### Backend
 
-Com os containers iniciados entramos em cada um, no caso do backend o comando é "docker compose exec ixcsoft-back sh".
+Com os containers iniciados entramos em cada um, no caso do backend o comando é "docker compose exec back sh".
 
 Dentro do ambiente das aplicações podemos interagir de diversas formas, no caso do backend, o comando "npm run test" executa todos os testes existentes no projeto, para executar a aplicação em desenvolvimento o comando é "npm run start:dev", já para buildar o projeto é "npm run build" e para startar em produção "npm run start".
 
 ### Frontend
 
-No caso do frontend o comando para entrar no container é "docker compose exec ixcsoft-front sh"
+No caso do frontend o comando para entrar no container é "docker compose exec front sh"
 
 Dentro do ambiente de podemos usar o comando "npm run dev" para subir a aplicação.
 

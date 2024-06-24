@@ -1,33 +1,32 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Envelope, Lock, Person } from '@phosphor-icons/react'
+import { Envelope, Lock } from '@phosphor-icons/react'
 import { enqueueSnackbar } from 'notistack'
 import { FormProvider, useForm } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom'
 import { z } from 'zod'
 import { Input } from '../components/Input'
+import { usePersistanceStore } from '../hooks/usePersistanceStore'
 import { api } from '../lib/axios'
 
-const Register = () => {
+const Login = () => {
+  const store = usePersistanceStore()
   const navigate = useNavigate()
 
   const handleLogin = (credentials: any) => {
     api
-      .post('clients', {
-        name: credentials.name,
+      .post('sessions', {
         email: credentials.email,
         password: credentials.password,
       })
       .then((response) => {
-        enqueueSnackbar(
-          `Usuário ${response.data.name} cadastrado com sucesso`,
-          {
-            variant: 'success',
-          },
+        store.updateValue(
+          'token_ixsoft_test_authentication',
+          response.data.token,
         )
-        navigate('/login')
+        navigate('/')
       })
-      .catch(() => {
-        enqueueSnackbar('Erro ao registrar, tente novamente mais tarde', {
+      .catch((error) => {
+        enqueueSnackbar(error.response.status, {
           variant: 'error',
         })
       })
@@ -40,12 +39,8 @@ const Register = () => {
       .email('Formato de e-mail invalido'),
     password: z
       .string()
-      .nonempty('A senha é obrigatória')
+      .nonempty('A senha é obrigatório')
       .min(6, 'A senha precisa ter, no mínimo 6 caracteres'),
-    name: z
-      .string()
-      .nonempty('O nome é obrigatório')
-      .min(2, 'A nome precisa ter, no mínimo, 2 caracteres'),
   })
 
   const loginForm = useForm({ resolver: zodResolver(createPersonFormSchema) })
@@ -60,9 +55,7 @@ const Register = () => {
     <div className="h-screen w-full flex flex-col justify-center items-center bg-gray-200">
       <main className="h-3/4 w-1/3 bg-white p-10 justify-evenly items-center flex flex-col rounded-md shadow-md">
         <div className="h-20 w-full flex justify-center items-center -mt-3">
-          <h1 className="text-4xl text-primary_color font-bold">
-            IXCSOFT-TESTE
-          </h1>
+          <h1 className="text-4xl text-primary_color font-bold">TESTE</h1>
         </div>
         <form
           onSubmit={handleSubmit(handleLogin)}
@@ -73,28 +66,6 @@ const Register = () => {
           className="flex flex-col gap-2"
         >
           <FormProvider {...loginForm}>
-            <Input.Root
-              id="name"
-              patternColor="background_color"
-              initialVisibility={false}
-            >
-              <Input.Icon icon={<Person color="gray" size={20} />} />
-              <Input.Text placeholder="Nome" />
-              <Input.Action />
-            </Input.Root>
-            {errors.name ? (
-              <span
-                aria-label={
-                  'O campo nome possui uma inconsistencia, por favor, verifique: ' +
-                  errors!.name!.message?.toString()
-                }
-                className="h-5 text-xs text-red-500 pl-2"
-              >
-                {errors!.name!.message?.toString()}
-              </span>
-            ) : (
-              <div className="h-5"> </div>
-            )}
             <Input.Root
               id="email"
               patternColor="background_color"
@@ -140,13 +111,13 @@ const Register = () => {
               type="submit"
               className="w-full p-2 cursor-pointer flex items-center bg-primary_color border-primary_color rounded-md text-secundary_color justify-center"
             >
-              Registrar
+              Login
             </button>
             <Link
               className="h-8 w-auto p-2 flex cursor-pointer text-xs self-center"
-              to={'/login'}
+              to={'/register'}
             >
-              Login
+              Registrar
             </Link>
           </FormProvider>
         </form>
@@ -155,4 +126,4 @@ const Register = () => {
   )
 }
 
-export default Register
+export default Login
